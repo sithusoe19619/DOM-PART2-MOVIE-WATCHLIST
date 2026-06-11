@@ -17,3 +17,52 @@ const clearWatchedBtn = ducument.getElementById("clear-watched-btn")
 // store them in filterBtns — you'll loop over them in Phase 6
 
 const filterBtns = ducument.querySelectorAll("filter-btn")
+
+
+
+//phase 2-Part A — textContent (review)
+// Change the app title
+// appTitle.textContent = "My Movie Watchlist"
+
+// Read and log the current count text
+// console.log("Count says:", movieCount.textContent)
+
+// Update the count text manually (JavaScript will keep this accurate later)
+// movieCount.textContent = "0 movies"
+
+
+
+//phase 2-Part B — classList (review)
+// .add() puts a class on the element
+// movieCount.classList.add("active-filter")
+// Look at the browser — what changed?
+
+// .remove() takes it off
+// movieCount.classList.remove("active-filter")
+
+// .toggle() adds if missing, removes if present — one call does both
+// movieCount.classList.toggle("active-filter")
+// movieCount.classList.toggle("active-filter")
+
+
+//phase 2-Part C — Attributes vs. Properties
+// getAttribute reads the HTML attribute as it was written in the file
+// console.log(titleInput.getAttribute("placeholder"))  // → "Movie title..."
+// console.log(titleInput.getAttribute("type"))         // → "text"
+// console.log(titleInput.getAttribute("required"))     // → "" (empty string = it exists)
+
+// setAttribute changes or adds an attribute
+// titleInput.setAttribute("placeholder", "Try: The Matrix")
+// Refresh — the placeholder text in the input changed
+
+// removeAttribute removes it entirely
+// titleInput.removeAttribute("required")
+// The input is no longer required — blank submissions won't be blocked
+// titleInput.setAttribute("required", "")  // put it back
+
+
+// What is the difference between getAttribute("value") and .value on an input?
+// getAttribute("value") →  It will shows up as "null", because of that this isn't a value attribute 
+//                          in the HTML file, and it won't get anything from Js.file. 
+// .value               → It will shows you the whatever you type in the box.
+//                        It doesn't care about what in the HTML or JS files.                            
