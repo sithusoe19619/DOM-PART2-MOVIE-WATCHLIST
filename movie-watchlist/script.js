@@ -7,16 +7,16 @@ const movieCount = document.getElementById("movie-count")
 // select #movie-list        → store in movieList
 // select #clear-watched-btn → store in clearWatchedBtn
 
-const movieForm = ducument.getElementById("movie-form")
-const titleInput = ducument.getElementById("title-input")
-const genreInput = ducument.getElementById("genre-input")
-const movieList = ducument.getElementById("movie-list")
-const clearWatchedBtn = ducument.getElementById("clear-watched-btn")
+const movieForm = document.getElementById("movie-form")
+const titleInput = document.getElementById("title-input")
+const genreInput = document.getElementById("genre-input")
+const movieList = document.getElementById("movie-list")
+const clearWatchedBtn = document.getElementById("clear-watched-btn")
 
 // select ALL elements with class "filter-btn" using querySelectorAll
 // store them in filterBtns — you'll loop over them in Phase 6
 
-const filterBtns = ducument.querySelectorAll("filter-btn")
+const filterBtns = document.querySelectorAll("filter-btn")
 
 
 
@@ -60,9 +60,44 @@ const filterBtns = ducument.querySelectorAll("filter-btn")
 // The input is no longer required — blank submissions won't be blocked
 // titleInput.setAttribute("required", "")  // put it back
 
+// titleInput.getAttribute("value")  // → null (the HTML never had a value attribute)
+// titleInput.value                  // → whatever you just typed
+
 
 // What is the difference between getAttribute("value") and .value on an input?
 // getAttribute("value") →  It will shows up as "null", because of that this isn't a value attribute 
 //                          in the HTML file, and it won't get anything from Js.file. 
 // .value               → It will shows you the whatever you type in the box.
 //                        It doesn't care about what in the HTML or JS files.                            
+
+
+movieForm.addEventListener("submit", (event) => {
+  // 1. Stop the browser from reloading the page — this must be the very first line
+  //    Without this, the page refreshes on every submit and you lose everything
+  //    hint: event.preventDefault()
+        event.preventDefault()
+        {
+            // 2. Read the movie title from the input — use .value, not getAttribute
+            //    hint: titleInput.value reads the live value the user typed
+
+            titleInput.value
+
+            // 3. Read the genre the same way
+
+            genreInput.value
+
+            // 4. Log both values to the console
+            //    Type a title and genre, submit — confirm you see them in DevTools
+
+            // 5. At the end, reset the form so the inputs are blank for the next entry
+            //    hint: movieForm.reset() clears all inputs in the form at once
+            movieForm.reset()
+
+        }
+             // 6. Don't build cards yet — that's Phase 4
+
+  
+        
+
+  
+})
