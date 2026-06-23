@@ -18,9 +18,23 @@ main{
 }
 */
 
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 #movie-list {
   padding: 0;
   list-style: none;
+}
+
+.movie-title {
+  font-weight: bold;
+}
+
+.movie-genre {
+  color: gray;
 }
 
 .movie-card {
@@ -47,15 +61,8 @@ main{
   border-radius: 6px;
 }
 
-/* Duplicate active-filter rule commented out.
-.active-filter {
-  background-color: #1a1a2e;
-  color: white;
-}
-*/
-
 /* Applied to the <li> when a movie is marked watched */
-.watched {
+.watched .movie-info{
   opacity: 0.5;
   text-decoration: line-through;
 }
