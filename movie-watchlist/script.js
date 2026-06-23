@@ -75,21 +75,62 @@ movieForm.addEventListener("submit", (event) => {
 
     console.log(titleInput.value)
     console.log(genreInput.value)
+
+    const newMovie = createMovieCard(titleInput.value, genreInput.value)
+
+    movieList.append(newMovie)
+    updateCount()
     movieForm.reset()
-  // 1. Stop the browser from reloading the page — this must be the very first line
-  //    Without this, the page refreshes on every submit and you lose everything
-  //    hint: event.preventDefault()
-
-  // 2. Read the movie title from the input — use .value, not getAttribute
-  //    hint: titleInput.value reads the live value the user typed
-
-  // 3. Read the genre the same way
-
-  // 4. Log both values to the console
-  //    Type a title and genre, submit — confirm you see them in DevTools
-
-  // 5. At the end, reset the form so the inputs are blank for the next entry
-  //    hint: movieForm.reset() clears all inputs in the form at once
-
-  // 6. Don't build cards yet — that's Phase 4
 })
+
+function createMovieCard(title, genre) {
+    const movieCard = document.createElement("li")
+
+    movieCard.classList.add("movie-card")
+    movieCard.setAttribute("data-genre", genre)
+  // 1. Create the outer <li>
+  //    - give it the class "movie-card"
+  //    - use setAttribute to set data-genre to the genre value
+    const movieInfo = document.createElement("div")
+    movieInfo.classList.add("movie-info")
+
+  // 2. Create a <div> for the info section — class "movie-info"
+    const movieTitle = document.createElement("span")
+    movieTitle.classList.add("movie-title")
+    movieTitle.textContent = title
+
+    const movieGenre = document.createElement("span")
+    movieGenre.classList.add("movie-genre")
+    movieGenre.textContent = genre || "No genre"
+
+    movieInfo.append(movieTitle, movieGenre)
+  //    Inside it, create two <span> elements:
+  //    - one with class "movie-title" — set its textContent to title
+  //    - one with class "movie-genre" — set its textContent to genre (show "No genre" if empty)
+  //    Append both spans into the info div
+
+    const movieActions = document.createElement("div")
+    movieActions.classList.add("movie-actions")
+
+    const watchBtn = document.createElement("button")
+    watchBtn.classList.add("watch-btn")
+    watchBtn.textContent = "Mark Watched"
+
+    const removeBtn = document.createElement("button")
+    removeBtn.classList.add("remove-btn")
+    removeBtn.textContent ="Remove"
+
+    movieActions.append(watchBtn, removeBtn)
+  // 3. Create a <div> for the buttons — class "movie-actions"
+  //    Inside it, create two <button> elements:
+  //    - one with class "watch-btn" — textContent "Mark Watched"
+  //    - one with class "remove-btn" — textContent "Remove"
+  //    Append both buttons into the actions div
+    
+    movieCard.append(movieInfo, movieActions)
+  // 4. Append the info div and actions div into the <li>
+
+    return movieCard
+  // 5. return the card — do NOT append it here
+  //    The function's job is to build and return. Appending is the caller's job.
+}
