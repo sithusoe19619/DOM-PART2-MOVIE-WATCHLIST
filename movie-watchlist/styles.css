@@ -14,3 +14,47 @@
 .filtered-out {
   display: none;
 }
+
+main{
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+}
+
+#movie-form{
+  display: flex;
+  gap: 10px;
+}
+
+#movie-list {
+  padding: 0;
+  list-style: none;
+}
+
+.movie-card {
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(10,5,0,0.15); 
+}
+
+#add-btn{
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.filter-btn {
+  background-color: #e5e7eb;
+  color: #1a1a2e;
+  border: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.active-filter {
+  background-color: #1a1a2e;
+  color: white;
+}
