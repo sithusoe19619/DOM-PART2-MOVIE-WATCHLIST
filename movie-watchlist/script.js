@@ -134,3 +134,48 @@ function createMovieCard(title, genre) {
   // 5. return the card — do NOT append it here
   //    The function's job is to build and return. Appending is the caller's job.
 }
+
+//Phase 5
+movieList.addEventListener("click", (event) => {
+  // 1. If the click was not on a BUTTON, return early
+  //    hint: event.target.tagName === "BUTTON"
+
+    if (event.target.tagName !== "BUTTON") {    
+        return
+    }
+
+  // 2. Get the card the button lives in
+  //    hint: event.target.closest("li")
+    const card = event.target.closest("li")
+
+  // 3. Was it the remove button?
+  //    - Check: event.target.classList.contains("remove-btn")
+  //    - If yes: remove the card from the DOM entirely
+  //      hint: card.remove()
+  //    - // TODO: call updateCount() here — Phase 6
+  //    - // TODO: call applyFilter(currentFilter) here — Phase 6
+    if(event.target.classList.contains("remove-btn")) {
+        card.remove()
+    }
+    // updateCount()
+    // applyFilter(currentFilter)
+  // 4. Was it the watch button?
+  //    - Check: event.target.classList.contains("watch-btn")
+  //    - If yes: toggle the "watched" class on the card
+  //      hint: card.classList.toggle("watched")
+  //    - Update the button's textContent based on the new state:
+  //      if the card now has .watched → set button text to "Unmark Watched"
+  //      if it no longer has .watched → set button text to "Mark Watched"
+  //      hint: card.classList.contains("watched") returns true or false
+  //    - // TODO: call applyFilter(currentFilter) here — Phase 6
+  if(event.target.classList.contains("watch-btn")){
+    card.classList.toggle("watched")
+    if (card.classList.contains("watched")) {
+        event.target.textContent = "Unmark Watched"
+    }
+    else {
+        event.target.textContent = "Mark Watched"
+    }
+  }
+//   applyFilter(currentFilter)
+})
